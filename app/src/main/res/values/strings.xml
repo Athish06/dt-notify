@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Notify</string>
+    <string name="listener_label">Notify Notification Access</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Notify</string>
+    <string name="onboarding_subtitle">Your notifications, kept private.</string>
+    <string name="onboarding_privacy">Notify has no internet access. Your data never leaves your phone.</string>
+    <string name="grant_access">Connect -></string>
+    <string name="access_granted">Access Granted</string>
+    <string name="battery_title">Keep Notify running reliably.</string>
+    <string name="battery_subtitle">Some phones restrict apps running in the background. We\'ll help you check your battery settings.</string>
+    <string name="disable_battery_opt">Fix battery settings</string>
+    <string name="get_started">Get started -></string>
+    <string name="skip">Skip</string>
+    <string name="next">Continue</string>
+
+    <!-- Tabs -->
+    <string name="tab_priority">Home</string>
+    <string name="tab_all">Activity</string>
+    <string name="tab_suggestions">Suggestions</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="rules">Rules</string>
+    <string name="export_data">Export</string>
+    <string name="service_health">Service health</string>
+    <string name="storage_stats">Storage</string>
+    <string name="about">About Notify</string>
+    <string name="version">Version %s</string>
+
+    <!-- Rules -->
+    <string name="add_rule">Add rule</string>
+    <string name="edit_rule">Edit Rule</string>
+    <string name="delete_rule">Delete Rule</string>
+    <string name="rule_type_app">App</string>
+    <string name="rule_type_sender">Sender</string>
+    <string name="priority_high">High</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_ignore">Ignore</string>
+
+    <!-- Suggestions -->
+    <string name="suggestion_title">Smart Suggestion</string>
+    <string name="suggestion_body">%1$s sent you %2$d notifications in the last 3 days. You interacted with %3$d of them.</string>
+    <string name="accept">Add priority</string>
+    <string name="reject">Not now</string>
+    <string name="never_ask">Never ask again</string>
+
+    <!-- Empty states -->
+    <string name="no_notifications">No notifications yet</string>
+    <string name="no_suggestions">No suggestions right now</string>
+    <string name="no_rules">No custom rules</string>
+    <string name="listener_not_active">Notification access not connected</string>
+    <string name="enable_access">Connect -></string>
+
+    <!-- Export -->
+    <string name="export_title">Export</string>
+    <string name="export_success">Exported %d notifications</string>
+    <string name="export_error">Export failed</string>
+
+    <!-- Health -->
+    <string name="health_connected">Connected</string>
+    <string name="health_disconnected">Disconnected</string>
+    <string name="health_unknown">Status Unknown</string>
+    <string name="last_notification">Last notification: %s</string>
+    <string name="total_captured">Total captured: %s</string>
+    <string name="db_size">Database size: %s</string>
+</resources>

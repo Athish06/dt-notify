@@ -1,0 +1,51 @@
+# Gradle and Build files
+.gradle/
+build/
+*/build/
+gradle-app.setting
+
+# Local configuration file (SDK path, secrets, etc.)
+local.properties
+
+# Log Files
+*.log
+
+# Android Studio / IntelliJ IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Keystore files (Never commit these!)
+*.jks
+*.keystore
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# C++ / NDK
+.cxx/
+.externalNativeBuild/
+obj/
+jniLibs/
+
+# Captures / Memory profiling
+/captures/
+
+# Hilt, KAPT, and KSP generated files
+kapt/
+ksp/
+generated/
+
+# Google Services (if you add Firebase later, don't commit the API keys)
+google-services.json
+
+# Test execution files
+*.gcno
+*.gcda

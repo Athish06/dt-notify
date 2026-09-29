@@ -1,0 +1,464 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "b5fbbebfab6a59e2bdf4d2ab24d48ced",
+    "entities": [
+      {
+        "tableName": "notifications",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `notification_key` TEXT NOT NULL, `package_name` TEXT NOT NULL, `app_label` TEXT NOT NULL, `sender_key` TEXT NOT NULL, `sender_name` TEXT NOT NULL, `is_group` INTEGER NOT NULL, `conversation_name` TEXT, `title` TEXT NOT NULL, `text` TEXT NOT NULL, `sub_text` TEXT, `channel_id` TEXT, `channel_importance` INTEGER NOT NULL, `category` TEXT, `is_conversation` INTEGER NOT NULL, `tier` TEXT NOT NULL, `matched_rule_id` INTEGER, `post_time` INTEGER NOT NULL, `post_time_iso` TEXT NOT NULL, `captured_at` INTEGER NOT NULL, `removal_reason` INTEGER, `was_clicked` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notificationKey",
+            "columnName": "notification_key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "package_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appLabel",
+            "columnName": "app_label",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "senderKey",
+            "columnName": "sender_key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "senderName",
+            "columnName": "sender_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isGroup",
+            "columnName": "is_group",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "conversationName",
+            "columnName": "conversation_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "subText",
+            "columnName": "sub_text",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "channelId",
+            "columnName": "channel_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "channelImportance",
+            "columnName": "channel_importance",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "isConversation",
+            "columnName": "is_conversation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tier",
+            "columnName": "tier",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "matchedRuleId",
+            "columnName": "matched_rule_id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "postTime",
+            "columnName": "post_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postTimeIso",
+            "columnName": "post_time_iso",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "capturedAt",
+            "columnName": "captured_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "removalReason",
+            "columnName": "removal_reason",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "wasClicked",
+            "columnName": "was_clicked",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_notifications_package_name_post_time",
+            "unique": false,
+            "columnNames": [
+              "package_name",
+              "post_time"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_package_name_post_time` ON `${TABLE_NAME}` (`package_name`, `post_time`)"
+          },
+          {
+            "name": "index_notifications_sender_key_post_time",
+            "unique": false,
+            "columnNames": [
+              "sender_key",
+              "post_time"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_sender_key_post_time` ON `${TABLE_NAME}` (`sender_key`, `post_time`)"
+          },
+          {
+            "name": "index_notifications_tier_post_time",
+            "unique": false,
+            "columnNames": [
+              "tier",
+              "post_time"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_tier_post_time` ON `${TABLE_NAME}` (`tier`, `post_time`)"
+          },
+          {
+            "name": "index_notifications_notification_key",
+            "unique": false,
+            "columnNames": [
+              "notification_key"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_notifications_notification_key` ON `${TABLE_NAME}` (`notification_key`)"
+          }
+        ]
+      },
+      {
+        "tableName": "rules",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `entity_type` TEXT NOT NULL, `package_name` TEXT NOT NULL, `sender_key` TEXT, `display_name` TEXT NOT NULL, `priority` TEXT NOT NULL, `source` TEXT NOT NULL, `created_at` INTEGER NOT NULL, `updated_at` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entity_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "package_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "senderKey",
+            "columnName": "sender_key",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "displayName",
+            "columnName": "display_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "priority",
+            "columnName": "priority",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "created_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updated_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_rules_entity_type_package_name_sender_key",
+            "unique": true,
+            "columnNames": [
+              "entity_type",
+              "package_name",
+              "sender_key"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_rules_entity_type_package_name_sender_key` ON `${TABLE_NAME}` (`entity_type`, `package_name`, `sender_key`)"
+          }
+        ]
+      },
+      {
+        "tableName": "daily_counts",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `entity_key` TEXT NOT NULL, `entity_type` TEXT NOT NULL, `package_name` TEXT NOT NULL, `date` TEXT NOT NULL, `notification_count` INTEGER NOT NULL, `click_count` INTEGER NOT NULL, `dismiss_count` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityKey",
+            "columnName": "entity_key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entity_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "package_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notificationCount",
+            "columnName": "notification_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clickCount",
+            "columnName": "click_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dismissCount",
+            "columnName": "dismiss_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_daily_counts_entity_key_date",
+            "unique": true,
+            "columnNames": [
+              "entity_key",
+              "date"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_daily_counts_entity_key_date` ON `${TABLE_NAME}` (`entity_key`, `date`)"
+          }
+        ]
+      },
+      {
+        "tableName": "suggestions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `entity_key` TEXT NOT NULL, `entity_type` TEXT NOT NULL, `package_name` TEXT NOT NULL, `display_name` TEXT NOT NULL, `suggested_priority` TEXT NOT NULL, `score` REAL NOT NULL, `status` TEXT NOT NULL, `created_at` INTEGER NOT NULL, `responded_at` INTEGER, `cooldown_until` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityKey",
+            "columnName": "entity_key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entity_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "packageName",
+            "columnName": "package_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "displayName",
+            "columnName": "display_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "suggestedPriority",
+            "columnName": "suggested_priority",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "created_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "respondedAt",
+            "columnName": "responded_at",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "cooldownUntil",
+            "columnName": "cooldown_until",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_suggestions_entity_key",
+            "unique": true,
+            "columnNames": [
+              "entity_key"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_suggestions_entity_key` ON `${TABLE_NAME}` (`entity_key`)"
+          }
+        ]
+      },
+      {
+        "tableName": "service_health",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `event` TEXT NOT NULL, `timestamp` INTEGER NOT NULL, `note` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "event",
+            "columnName": "event",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b5fbbebfab6a59e2bdf4d2ab24d48ced')"
+    ]
+  }
+}
